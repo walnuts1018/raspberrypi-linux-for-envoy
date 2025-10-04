@@ -152,7 +152,9 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y \
-          apt-ftparchive
+            dpkg-dev \
+            apt-utils \
+            gnupg
 
       - name: Move .deb packages to repo directory
         run: |
