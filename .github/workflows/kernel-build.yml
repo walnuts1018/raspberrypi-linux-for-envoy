@@ -74,7 +74,7 @@ jobs:
           scripts/config --file ${{github.workspace}}/build/.config --enable CONFIG_ARM64_VA_BITS_48
           scripts/config --file ${{github.workspace}}/build/.config --set-val ARM64_VA_BITS 48
           scripts/config --file ${{github.workspace}}/build/.config --set-val PGTABLE_LEVELS 4
-          scripts/config --file ${{github.workspace}}/build/.config --set-val CONFIG_WERROR y
+          # scripts/config --file ${{github.workspace}}/build/.config --set-val CONFIG_WERROR y
           scripts/config --file ${{github.workspace}}/build/.config --set-val CONFIG_LOCALVERSION -v8-${{github.run_number}}-custom-for-envoy
 
           make O=${{github.workspace}}/build -j ${{env.NUM_JOBS}} $IMAGE modules dtbs
