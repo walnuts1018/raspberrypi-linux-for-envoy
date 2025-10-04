@@ -88,19 +88,23 @@ jobs:
       - name: Kernel defconfig
         run: make O=${{github.workspace}}/build ${{matrix.defconfig}}
 
+      - name: LOCALVERSION
+        id: localversion
+        run: echo "+custom-for-envoy-rpi-v8" >> $GITHUB_OUTPUT
+
       - name: Kernel config customization
         run: |
           scripts/config --file ${{github.workspace}}/build/.config --disable CONFIG_ARM64_VA_BITS_39
           scripts/config --file ${{github.workspace}}/build/.config --enable CONFIG_ARM64_VA_BITS_48
           scripts/config --file ${{github.workspace}}/build/.config --set-val ARM64_VA_BITS 48
           scripts/config --file ${{github.workspace}}/build/.config --set-val PGTABLE_LEVELS 4
-          scripts/config --file ${{github.workspace}}/build/.config --set-val CONFIG_LOCALVERSION -v8-${{github.run_number}}-custom-for-envoy
+          scripts/config --file ${{github.workspace}}/build/.config --set-val CONFIG_LOCALVERSION ${{ steps.localversion.outputs.LOCALVERSION }}
 
       - name: Build kernel image, modules, dtbs
         run: make CC="ccache gcc" O=${{github.workspace}}/build -j ${{env.NUM_JOBS}} ${{ env.IMAGE }} modules dtbs
 
       - name: Build kernel deb packages
-        run: make CC="ccache gcc" O=${{github.workspace}}/build -j ${{env.NUM_JOBS}} LOCALVERSION="-v8-${{github.run_number}}-custom-for-envoy" bindeb-pkg
+        run: make CC="ccache gcc" O=${{github.workspace}}/build -j ${{env.NUM_JOBS}} LOCALVERSION="${{ steps.localversion.outputs.LOCALVERSION }}" bindeb-pkg
 
       - name: Get kernel version string
         id: kernel_version
