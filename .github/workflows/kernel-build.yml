@@ -26,28 +26,26 @@ jobs:
         if: matrix.arch == 'arm'
         env:
           DEBIAN_FRONTEND: noninteractive
-        run: |
-          sudo apt-get install -y gcc-arm-linux-gnueabihf
+        run: sudo apt-get install -y gcc-arm-linux-gnueabihf
         timeout-minutes: 15
 
       - name: Install Dependencies
         run: |
           sudo apt-get update
           sudo apt-get install -y \
-          ccache \
-          bc \
-          bison \
-          flex \
-          libssl-dev \
-          make \
-          libc6-dev \
-          libncurses5-dev \
-          rsync \
-          ccache \
-          build-essential \
-          dpkg-dev \
-          libelf-dev \
-          debhelper
+            ccache \
+            bc \
+            bison \
+            flex \
+            libssl-dev \
+            make \
+            libc6-dev \
+            libncurses5-dev \
+            rsync \
+            build-essential \
+            dpkg-dev \
+            libelf-dev \
+            debhelper
 
       - name: Set up ccache cache
         uses: actions/cache@v4
@@ -63,34 +61,44 @@ jobs:
       - name: Reset ccache statistics
         run: ccache -z
 
-      - uses: actions/checkout@v4
+      - name: Checkout source
+        uses: actions/checkout@v4
         with:
           fetch-depth: 1
           clean: true
 
-      - name: Build kernel ${{matrix.name}}
-        run: |
-          mkdir ${{github.workspace}}/build
-          export ARCH=${{matrix.arch}}
-          if [[ "$ARCH" == "arm64" ]]; then
-            export DTS_SUBDIR=broadcom
-            export IMAGE=Image.gz
-          else
-            export CROSS_COMPILE=arm-linux-gnueabihf-
-            export DTS_SUBDIR=broadcom
-            export IMAGE=zImage
-          fi
-          make O=${{github.workspace}}/build ${{matrix.defconfig}}
+      - name: Prepare build directory
+        run: mkdir ${{github.workspace}}/build
 
+      - name: Set environment variables
+        id: env_vars
+        run: |
+          echo "ARCH=${{matrix.arch}}" >> $GITHUB_ENV
+          if [[ "${{matrix.arch}}" == "arm64" ]]; then
+            echo "DTS_SUBDIR=broadcom" >> $GITHUB_ENV
+            echo "IMAGE=Image.gz" >> $GITHUB_ENV
+          else
+            echo "CROSS_COMPILE=arm-linux-gnueabihf-" >> $GITHUB_ENV
+            echo "DTS_SUBDIR=broadcom" >> $GITHUB_ENV
+            echo "IMAGE=zImage" >> $GITHUB_ENV
+          fi
+
+      - name: Kernel defconfig
+        run: make O=${{github.workspace}}/build ${{matrix.defconfig}}
+
+      - name: Kernel config customization
+        run: |
           scripts/config --file ${{github.workspace}}/build/.config --disable CONFIG_ARM64_VA_BITS_39
           scripts/config --file ${{github.workspace}}/build/.config --enable CONFIG_ARM64_VA_BITS_48
           scripts/config --file ${{github.workspace}}/build/.config --set-val ARM64_VA_BITS 48
           scripts/config --file ${{github.workspace}}/build/.config --set-val PGTABLE_LEVELS 4
-          # scripts/config --file ${{github.workspace}}/build/.config --set-val CONFIG_WERROR y
           scripts/config --file ${{github.workspace}}/build/.config --set-val CONFIG_LOCALVERSION -v8-${{github.run_number}}-custom-for-envoy
 
-          make O=${{github.workspace}}/build -j ${{env.NUM_JOBS}} $IMAGE modules dtbs
-          make O=${{github.workspace}}/build -j ${{env.NUM_JOBS}} bindeb-pkg
+      - name: Build kernel image, modules, dtbs
+        run: make O=${{github.workspace}}/build -j ${{env.NUM_JOBS}} ${{ env.IMAGE }} modules dtbs
+
+      - name: Build kernel deb packages
+        run: make O=${{github.workspace}}/build -j ${{env.NUM_JOBS}} bindeb-pkg
 
       - name: Get kernel version string
         id: kernel_version
@@ -118,7 +126,7 @@ jobs:
           passphrase: ${{ secrets.GPG_PASSPHRASE }}
 
       - name: Check out gh-pages branch
-        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+        uses: actions/checkout@v4
         with:
           ref: gh-pages
           path: gh-pages
@@ -129,23 +137,24 @@ jobs:
           name: bcm2711_pkgs
           path: ./bcm2711_pkgs
 
-      - name: Update APT Repository
+      - name: Move .deb packages to repo directory
         run: |
           cd gh-pages
-          REPO_DIR="dists/stable/main/binary-arm64"
-          mkdir -p "$REPO_DIR"
-          mv ../bcm2711_pkgs/*.deb "$REPO_DIR/"
+          mkdir -p dists/stable/main/binary-arm64
+          mv ../bcm2711_pkgs/*.deb dists/stable/main/binary-arm64/
 
-          cd "$REPO_DIR"
+      - name: Update Packages index
+        run: |
+          cd gh-pages/dists/stable/main/binary-arm64
           dpkg-scanpackages . /dev/null > Packages
           gzip -k -f Packages
-          cd gh-pages/dists/stable
 
+      - name: Update Release file and sign
+        run: |
+          cd gh-pages/dists/stable
           apt-ftparchive release . > Release
           gpg --clearsign -o InRelease Release
-
-
-          gpg --export --armor "Raspberry Pi Kernel for Envoy" >  > public.key
+          gpg --export --armor "Raspberry Pi Kernel for Envoy" > public.key
 
       - name: Commit and Push to gh-pages
         run: |
@@ -153,5 +162,5 @@ jobs:
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add .
-          git commit -m "Update APT repository with kernel ${{ needs.build.outputs.kernel_version_string }}" || echo "No changes to commit"
+          git commit -m "Update APT repository with kernel ${{ needs.build.outputs.kernel_version }}" || echo "No changes to commit"
           git push origin gh-pages
