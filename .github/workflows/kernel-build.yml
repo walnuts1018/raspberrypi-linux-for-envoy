@@ -95,7 +95,7 @@ jobs:
           scripts/config --file ${{github.workspace}}/build/.config --set-val CONFIG_LOCALVERSION -v8-${{github.run_number}}-custom-for-envoy
 
       - name: Build kernel deb packages
-        run: make O=${{github.workspace}}/build -j ${{env.NUM_JOBS}} ${{ env.IMAGE }} modules dtbs bindeb-pkg
+        run: make CC="ccache gcc" O=${{github.workspace}}/build -j ${{env.NUM_JOBS}} ${{ env.IMAGE }} modules dtbs bindeb-pkg
 
       - name: Get kernel version string
         id: kernel_version
