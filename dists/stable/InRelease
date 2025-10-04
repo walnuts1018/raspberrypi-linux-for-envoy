@@ -4,38 +4,38 @@ Hash: SHA512
 Architectures: arm64
 Codename: stable
 Components: main
-Date: Sat, 04 Oct 2025 18:51:42 +0000
+Date: Sat, 04 Oct 2025 18:57:05 +0000
 Description: Custom kernel repository for Envoy on Raspberry Pi
 Label: Raspberry Pi Kernel for Envoy
 Origin: walnuts1018
 Suite: stable
 MD5Sum:
- 0880fa72ac3e3c52da512a14c18ee359              228 Release
- e03ca12ecec68d64d6e869ce95598fbd             2460 main/binary-arm64/Packages
- 37da8af54ad6ee156132df2f196a1cdb              926 main/binary-arm64/Packages.gz
+ 1b469b6439a728d94659e671f9988cee              228 Release
+ 7b51ebc75cd2076e149b29a6ba8767f3             4920 main/binary-arm64/Packages
+ cf0e2d3446a3ab36c09645e57bbdbe98             1293 main/binary-arm64/Packages.gz
 SHA1:
- c35366061a4d9255a024d01cf61d37225074395a              228 Release
- 819c1c55b7202a302ac49d1b7f2c30b4ac3f6cd5             2460 main/binary-arm64/Packages
- df9bd82e4be511d5f413f8089f3c65e00b7bf9f8              926 main/binary-arm64/Packages.gz
+ 0dc1936d23d912da64f4c2f69b1940e2c2688eb0              228 Release
+ ecd278ca0a66941eddbb99b5cd7ee76b6219da49             4920 main/binary-arm64/Packages
+ 0f1dbc3ea457e6d9b10e7c291a0122834b0dc359             1293 main/binary-arm64/Packages.gz
 SHA256:
- e500b6f9998d33f8acc1971136346b0870919cdcb32e81cd1df7b05b7cd2b62d              228 Release
- 1fe3e125bf6983e1829cf0de68a4d08f35179d0d30ec91364868241f698fd48b             2460 main/binary-arm64/Packages
- 292ca5644311b5611e04fa0159b705d8d52f3660f8616ad1cdfb173b569dc1fc              926 main/binary-arm64/Packages.gz
+ 37dcfcace5f492531ec3cb7a229c617035e6d08e696d081e4da1e04249bb1101              228 Release
+ 0ffda374b3053d5bd16a5babca23d0219ccf6c5d6b2739844b51c58cb61d7112             4920 main/binary-arm64/Packages
+ 51465b37f52c471f8aec1a844894c97ff6719b2f30fbe69d4281adb75801f058             1293 main/binary-arm64/Packages.gz
 SHA512:
- 41b18307b26a83141e01fcaa27b77161ac3b48f1c3e4f8b4e54ba446ac73147a76f71ac1b13b20ee3a533523b127cb5854d7462daab8d4356ac1a4c14dddc06b              228 Release
- b5a14c364645e58337c7a6a237a33829d2a339ca9aa2d7d5d78d390bbe4dcc43a3fcac9331afb57d8192933a8506e2344b4f10eba3898d50739ef314aecbc34c             2460 main/binary-arm64/Packages
- fc0e9e00e8cfbd3d1ce7d9bd399be54486d77a0d5b62c4a821c19e70168406c527fbbfccd3d4d02bdc65489d510988b64e16bff6312812f812073fd5231c136c              926 main/binary-arm64/Packages.gz
+ 7fd2633b39d1c3e7a36817be91b22580e25a5b33bab61e0bc0829e3c596df5cf06dbe4976afd7ff10b40207b59ee470583add8d19fe94bb1d98a7774a2cbe56b              228 Release
+ ea4a77a3c6974a0fe14fdc144b24ece648ef220da91fdb6269c7748b315e91d0628c5a5e6fa07d99b7c5958882f3d978c45b62a7403c550f7080aac0ab1faa7e             4920 main/binary-arm64/Packages
+ 42616db9b2f5ecb41fd3dfe13bfd5136e01a391a952573d4096ad0a32712bf9b27ef32e5806ff7493aee20e3d2c53cb8351609e3aa76d57120950fdbbdda71bc             1293 main/binary-arm64/Packages.gz
 -----BEGIN PGP SIGNATURE-----
 
-iQGzBAEBCgAdFiEEAXLpjJtrnoWVl84dcdy9bwJTXysFAmjhbL4ACgkQcdy9bwJT
-XyvqFQv/WSrKLaLHsacBq8JTTMF9pJ9nwYj66VmbruMxvfB30gAPOkJrf4qjgH3o
-90VM+4/Ifk3o78iQcug9SiGGnvezWqn2bn5a49ZAJHBfwRoatwo8mWhgXa2nxCm0
-hX4FbWdFWWAfXU1tmp50/wE9D2cEF4FZ3+jly5ia8Kfh1921+S6bNn+PUfNEzby9
-x3kRO9xosyGEArJEqIU8S9/X8G2stH3+nvPJLq94eiQNSnWcgOynACP2hsENcMXk
-EnFioqdF20KoWiKGmeWQBEn/RgD9hEXNxGNA80gugkcwC8jduazSQH1Z9bzei123
-SQG4M1anjJ2Ek+j5jtl6a5lF2hNzNaEHA+XCS41Nt9JAHTOs/UW/nRWE9cNH79am
-XmyQuFJ6dV+rtbrMy7Ky9rXElN83QvRn3aaHHnt5I7f/jXngrj718zsgk7KeIkSE
-sD4JWtTlvonTF8b0a96D18eCKRno7j77Y+xn6odRE8fcCGJAALDPv+uJlwvF94GH
-gaHQe6qy
-=mRA6
+iQGzBAEBCgAdFiEEAXLpjJtrnoWVl84dcdy9bwJTXysFAmjhbgEACgkQcdy9bwJT
+Xys0XQv/fX/SksUtidbsr/hMsuYQ/25SGfPwAuwC/xn/OdvbAtYeGZemJQrldMh1
+dV4S0GOOVgo6Yuz6jm3sTMm/eT3oGuy6KaFMzmyAokN4AUWkcUmRMzotfjCdpa5D
+FC+/7EEKC7QkaoORYtETT2gbyx1Yr22KCQrU/xapX7Pwp1q8rdnWWpotQ4nxd8PZ
+xt/vRMyl/7J/2ABbw7/etut7gQfW2E1HkkcvY/DFcW4QG/ojknTj9dIkld5LGD3j
+qhNcisVPX6d5TTEkdKLx8VYN6hYuR3nGrOAFkTHPdWanZ/36jpcSlN/+5/213JBm
+qSt9doQvH1FmfYnR1uSmcTMYO2Y9WB5XMhJQGvatJWzo3a3i4Y/Rn9QxY2UsCNqe
+nPxwKDJfeFbl4B6ByJFRmQ23zzuNuACn36e6i1OPJcrFdr5Ts+BwvTvhoyJhKCIw
+x3gmgYJI8VT4xfUqQJKJcHVddpj5m+dDgzWT2W0VvoIHLEXNbOjwYvY2ud2mlqgC
+f+iEskxD
+=HyzD
 -----END PGP SIGNATURE-----
