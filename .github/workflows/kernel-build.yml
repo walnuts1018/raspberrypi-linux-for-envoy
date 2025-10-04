@@ -104,7 +104,7 @@ jobs:
         run: make CC="ccache gcc" O=${{github.workspace}}/build -j ${{env.NUM_JOBS}} ${{ env.IMAGE }} modules dtbs
 
       - name: Build kernel deb packages
-        run: make CC="ccache gcc" O=${{github.workspace}}/build -j ${{env.NUM_JOBS}} LOCALVERSION="${{ steps.localversion.outputs.localversion }}" bindeb-pkg
+        run: make O=${{github.workspace}}/build -j ${{env.NUM_JOBS}} LOCALVERSION="${{ steps.localversion.outputs.localversion }}" bindeb-pkg
 
       - name: Get kernel version string
         id: kernel_version
