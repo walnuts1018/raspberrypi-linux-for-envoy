@@ -17,6 +17,25 @@ Description: Linux kernel headers for 6.12.50+ on arm64
  .
  This is useful for people who need to build external modules
 
+Package: linux-headers-6.12.50-v8-24-custom-for-envoy
+Source: linux-upstream
+Version: 6.12.50-gf9bcb8e7e958-2
+Architecture: arm64
+Maintainer: runner <runner@runnervmonn4v.npf0p225mkrenglw3n0laovr5b.xx.internal.cloudapp.net>
+Installed-Size: 50835
+Filename: ./linux-headers-6.12.50-v8-24-custom-for-envoy_6.12.50-gf9bcb8e7e958-2_arm64.deb
+Size: 8829112
+MD5sum: 2be6a88f0b1539eb4d788d770f7c02ed
+SHA1: 70d40a1ed9b2e47dc5aef1616850e5cde28f6477
+SHA256: 0a243ccb28c4871ec269c4e787faf620d7d172fe50f901ca5970aca0f94d8589
+Section: kernel
+Priority: optional
+Homepage: https://www.kernel.org/
+Description: Linux kernel headers for 6.12.50-v8-24-custom-for-envoy on arm64
+ This package provides kernel header files for 6.12.50-v8-24-custom-for-envoy on arm64
+ .
+ This is useful for people who need to build external modules
+
 Package: linux-image-6.12.50+
 Source: linux-upstream
 Version: 6.12.50-g9d9e9bfcce9f-2
@@ -35,18 +54,36 @@ Description: Linux kernel, version 6.12.50+
  This package contains the Linux kernel, modules and corresponding other
  files, version: 6.12.50+.
 
+Package: linux-image-6.12.50-v8-24-custom-for-envoy
+Source: linux-upstream
+Version: 6.12.50-gf9bcb8e7e958-2
+Architecture: arm64
+Maintainer: runner <runner@runnervmonn4v.npf0p225mkrenglw3n0laovr5b.xx.internal.cloudapp.net>
+Installed-Size: 41859
+Filename: ./linux-image-6.12.50-v8-24-custom-for-envoy_6.12.50-gf9bcb8e7e958-2_arm64.deb
+Size: 32743630
+MD5sum: b6700f4ab43f0b5a1889a2100f69787c
+SHA1: 5ad93e0d5b4d6bf5d5992ca5ec4bb11e1f8e72f2
+SHA256: 48e0644d595762c5bcf076cd93b28c053f592dd45b4525fbe0ae30b3ab13967d
+Section: kernel
+Priority: optional
+Homepage: https://www.kernel.org/
+Description: Linux kernel, version 6.12.50-v8-24-custom-for-envoy
+ This package contains the Linux kernel, modules and corresponding other
+ files, version: 6.12.50-v8-24-custom-for-envoy.
+
 Package: linux-libc-dev
 Source: linux-upstream
-Version: 6.12.50-g9d9e9bfcce9f-2
+Version: 6.12.50-gf9bcb8e7e958-2
 Architecture: arm64
-Maintainer: runner <runner@runnervmonn4v.zrhpg0puf4zehc1i3rlr0irbtb.phxx.internal.cloudapp.net>
+Maintainer: runner <runner@runnervmonn4v.npf0p225mkrenglw3n0laovr5b.xx.internal.cloudapp.net>
 Installed-Size: 7082
 Provides: linux-kernel-headers
-Filename: ./linux-libc-dev_6.12.50-g9d9e9bfcce9f-2_arm64.deb
-Size: 1419384
-MD5sum: 99173afefda7bcfaf5727ce856786179
-SHA1: 39630844284fa4cf2d766b86c15cbffad545dbb6
-SHA256: 92ec4f524ae12225eb89151894b079e5e503c61ee6f1dba6578ebcbd2aacf60f
+Filename: ./linux-libc-dev_6.12.50-gf9bcb8e7e958-2_arm64.deb
+Size: 1420384
+MD5sum: 5cfc63f98b4f078dbfd1a5ace5c6c001
+SHA1: b3a18442c9c7737bcccbf6536e834916f7ad9871
+SHA256: 2210e54782e0c0efe2214c2c36ce765c2b4b3b9e18fce8ee22932eb6388f831a
 Section: devel
 Priority: optional
 Multi-Arch: same
