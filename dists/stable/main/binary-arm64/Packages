@@ -4,7 +4,7 @@ Version: 6.12.50-g9d9e9bfcce9f-2
 Architecture: arm64
 Maintainer: runner <runner@runnervmonn4v.zrhpg0puf4zehc1i3rlr0irbtb.phxx.internal.cloudapp.net>
 Installed-Size: 50835
-Filename: ./linux-headers-6.12.50+_6.12.50-g9d9e9bfcce9f-2_arm64.deb
+Filename: main/binary-arm64/linux-headers-6.12.50+_6.12.50-g9d9e9bfcce9f-2_arm64.deb
 Size: 8820798
 MD5sum: af4e29ca9f210236222ed53500a428b3
 SHA1: 5291784923b40171ee75c7da1db8e291424e8951
@@ -23,7 +23,7 @@ Version: 6.12.50-gf9bcb8e7e958-2
 Architecture: arm64
 Maintainer: runner <runner@runnervmonn4v.npf0p225mkrenglw3n0laovr5b.xx.internal.cloudapp.net>
 Installed-Size: 50835
-Filename: ./linux-headers-6.12.50-v8-24-custom-for-envoy_6.12.50-gf9bcb8e7e958-2_arm64.deb
+Filename: main/binary-arm64/linux-headers-6.12.50-v8-24-custom-for-envoy_6.12.50-gf9bcb8e7e958-2_arm64.deb
 Size: 8829112
 MD5sum: 2be6a88f0b1539eb4d788d770f7c02ed
 SHA1: 70d40a1ed9b2e47dc5aef1616850e5cde28f6477
@@ -42,7 +42,7 @@ Version: 6.12.50-g9d9e9bfcce9f-2
 Architecture: arm64
 Maintainer: runner <runner@runnervmonn4v.zrhpg0puf4zehc1i3rlr0irbtb.phxx.internal.cloudapp.net>
 Installed-Size: 41827
-Filename: ./linux-image-6.12.50+_6.12.50-g9d9e9bfcce9f-2_arm64.deb
+Filename: main/binary-arm64/linux-image-6.12.50+_6.12.50-g9d9e9bfcce9f-2_arm64.deb
 Size: 32711814
 MD5sum: ea12f9420639f57646b8a968aedf1f0d
 SHA1: fb7cfa742cd00f7a5478f38245df76470206e779
@@ -60,7 +60,7 @@ Version: 6.12.50-gf9bcb8e7e958-2
 Architecture: arm64
 Maintainer: runner <runner@runnervmonn4v.npf0p225mkrenglw3n0laovr5b.xx.internal.cloudapp.net>
 Installed-Size: 41859
-Filename: ./linux-image-6.12.50-v8-24-custom-for-envoy_6.12.50-gf9bcb8e7e958-2_arm64.deb
+Filename: main/binary-arm64/linux-image-6.12.50-v8-24-custom-for-envoy_6.12.50-gf9bcb8e7e958-2_arm64.deb
 Size: 32743630
 MD5sum: b6700f4ab43f0b5a1889a2100f69787c
 SHA1: 5ad93e0d5b4d6bf5d5992ca5ec4bb11e1f8e72f2
@@ -74,12 +74,32 @@ Description: Linux kernel, version 6.12.50-v8-24-custom-for-envoy
 
 Package: linux-libc-dev
 Source: linux-upstream
+Version: 6.12.50-g9d9e9bfcce9f-2
+Architecture: arm64
+Maintainer: runner <runner@runnervmonn4v.zrhpg0puf4zehc1i3rlr0irbtb.phxx.internal.cloudapp.net>
+Installed-Size: 7082
+Provides: linux-kernel-headers
+Filename: main/binary-arm64/linux-libc-dev_6.12.50-g9d9e9bfcce9f-2_arm64.deb
+Size: 1419384
+MD5sum: 99173afefda7bcfaf5727ce856786179
+SHA1: 39630844284fa4cf2d766b86c15cbffad545dbb6
+SHA256: 92ec4f524ae12225eb89151894b079e5e503c61ee6f1dba6578ebcbd2aacf60f
+Section: devel
+Priority: optional
+Multi-Arch: same
+Homepage: https://www.kernel.org/
+Description: Linux support headers for userspace development
+ This package provides userspaces headers from the Linux kernel.  These headers
+ are used by the installed headers for GNU glibc and other system libraries.
+
+Package: linux-libc-dev
+Source: linux-upstream
 Version: 6.12.50-gf9bcb8e7e958-2
 Architecture: arm64
 Maintainer: runner <runner@runnervmonn4v.npf0p225mkrenglw3n0laovr5b.xx.internal.cloudapp.net>
 Installed-Size: 7082
 Provides: linux-kernel-headers
-Filename: ./linux-libc-dev_6.12.50-gf9bcb8e7e958-2_arm64.deb
+Filename: main/binary-arm64/linux-libc-dev_6.12.50-gf9bcb8e7e958-2_arm64.deb
 Size: 1420384
 MD5sum: 5cfc63f98b4f078dbfd1a5ace5c6c001
 SHA1: b3a18442c9c7737bcccbf6536e834916f7ad9871
