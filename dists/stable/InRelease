@@ -1,0 +1,34 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Date: Sat, 04 Oct 2025 14:19:41 +0000
+MD5Sum:
+ a7a3c8e6217b0f60e18b65cd1462034c               38 Release
+ 7a0844178fe377b592b4d98b4e3e585c             2195 main/binary-arm64/Packages
+ 967f555b6056eb62d81cc4fac6641f09              885 main/binary-arm64/Packages.gz
+SHA1:
+ ff094445815d6469a7d66b90f291ec0c2fd3fca8               38 Release
+ ee40b91c8c96eab7b1e03553eb556b41d6c3d303             2195 main/binary-arm64/Packages
+ bb43ca74022a5330249ab61e099908e67f18d7f4              885 main/binary-arm64/Packages.gz
+SHA256:
+ f0a3e4717d7328a1569a1bf707c4d5452f29a2e99e9a005d1078b2c42a38ec9a               38 Release
+ 023b094a7e5c1bf4378ef3ee2fb0f2c170472ce60aea8c61bf4e35f6ede8041d             2195 main/binary-arm64/Packages
+ dc224c50f72e1b46fefa4184ac6955bc408dcc7ec4741dc7b6f6a7a5cb59a90d              885 main/binary-arm64/Packages.gz
+SHA512:
+ 63bb47a30c4f8f64f92cdce6694a7c42e46d9cb08f961472f9b9c8fc4127c3e6f440c10b60b5c6af709738ed7d69d1f7c3ed99b34824dc1b3e86f1848193c674               38 Release
+ cb81d934b83e737826c27aef1858ec20b4546c55fc4a88b5f4eb4c9d2f5f0f86e74b69f0e8b08fd2477d04e6862367b2ee0f616956cb2043ffb4a5ae5ac40260             2195 main/binary-arm64/Packages
+ 05f524aa173da8ca1aa86be9067b0e3ae8fcc2694e5f8d9a4e8c25e58f84d4f1d3e4bdbf7551be9dbc1097fa95f5e86b7c0a825029649374696328bd5a4a58ca              885 main/binary-arm64/Packages.gz
+-----BEGIN PGP SIGNATURE-----
+
+iQGzBAEBCgAdFiEEAXLpjJtrnoWVl84dcdy9bwJTXysFAmjhLP0ACgkQcdy9bwJT
+XysKXAv/djtHbYkAzaYM1lSPEdIDLKta7gVZ15G07sJdg4PTDGUmZ8piZariDOOR
+PvY6DfFVua+WNhJ8/tInciTj+fZBGPkID4YjdWl5e9a4JrHyZKMv2zzs6IwxBkRk
+64YqoQE69NT7gwmJG0mDj/caCpOgW6eExMPQJoD1qgQ5t4/ZE45ZioNl7eX/sZTQ
+WK1KcLGac/UmyMfYoKFgPuFHk3FJW+xAPv3m4wwomDUHw2cdGZ85RFRzNZJi169l
+5G/9MWgCVzmXjAprDo3Xi/VVHQMdPT7lTqe98JC+LPFabEFVbOAV19uBjyTGeW00
+YBiDQXjfXoSXC6os2i/JFYJGXl1QP8AQeXB8v1EbTKnTkmmdnIZDXC8Nqp49ZFng
+A7jwVDZ4HXS68franNuzFAz8kZVSmaC2Z+rpe4vJapNQ6oBrpB8H7Sa9xG3HPtsE
+JOHQGB43so+mRuXYt/DHhjfSgLpTGg5TrKAhbRfi8vLYxw059cc6A4ayoIPvgHPq
+T+CJFGXO
+=q9Lh
+-----END PGP SIGNATURE-----

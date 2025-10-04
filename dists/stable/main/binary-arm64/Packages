@@ -1,0 +1,57 @@
+Package: linux-headers-6.12.50+
+Source: linux-upstream
+Version: 6.12.50-g9d9e9bfcce9f-2
+Architecture: arm64
+Maintainer: runner <runner@runnervmonn4v.zrhpg0puf4zehc1i3rlr0irbtb.phxx.internal.cloudapp.net>
+Installed-Size: 50835
+Filename: ./linux-headers-6.12.50+_6.12.50-g9d9e9bfcce9f-2_arm64.deb
+Size: 8820798
+MD5sum: af4e29ca9f210236222ed53500a428b3
+SHA1: 5291784923b40171ee75c7da1db8e291424e8951
+SHA256: c4e0297780e75af79c3f1d2aaa591604343988dbe53c827d9292f30e70c50889
+Section: kernel
+Priority: optional
+Homepage: https://www.kernel.org/
+Description: Linux kernel headers for 6.12.50+ on arm64
+ This package provides kernel header files for 6.12.50+ on arm64
+ .
+ This is useful for people who need to build external modules
+
+Package: linux-image-6.12.50+
+Source: linux-upstream
+Version: 6.12.50-g9d9e9bfcce9f-2
+Architecture: arm64
+Maintainer: runner <runner@runnervmonn4v.zrhpg0puf4zehc1i3rlr0irbtb.phxx.internal.cloudapp.net>
+Installed-Size: 41827
+Filename: ./linux-image-6.12.50+_6.12.50-g9d9e9bfcce9f-2_arm64.deb
+Size: 32711814
+MD5sum: ea12f9420639f57646b8a968aedf1f0d
+SHA1: fb7cfa742cd00f7a5478f38245df76470206e779
+SHA256: 6a1a96878611f81bb2eaff7fcc987270822ca6f476fca4926bb8b035be8113a1
+Section: kernel
+Priority: optional
+Homepage: https://www.kernel.org/
+Description: Linux kernel, version 6.12.50+
+ This package contains the Linux kernel, modules and corresponding other
+ files, version: 6.12.50+.
+
+Package: linux-libc-dev
+Source: linux-upstream
+Version: 6.12.50-g9d9e9bfcce9f-2
+Architecture: arm64
+Maintainer: runner <runner@runnervmonn4v.zrhpg0puf4zehc1i3rlr0irbtb.phxx.internal.cloudapp.net>
+Installed-Size: 7082
+Provides: linux-kernel-headers
+Filename: ./linux-libc-dev_6.12.50-g9d9e9bfcce9f-2_arm64.deb
+Size: 1419384
+MD5sum: 99173afefda7bcfaf5727ce856786179
+SHA1: 39630844284fa4cf2d766b86c15cbffad545dbb6
+SHA256: 92ec4f524ae12225eb89151894b079e5e503c61ee6f1dba6578ebcbd2aacf60f
+Section: devel
+Priority: optional
+Multi-Arch: same
+Homepage: https://www.kernel.org/
+Description: Linux support headers for userspace development
+ This package provides userspaces headers from the Linux kernel.  These headers
+ are used by the installed headers for GNU glibc and other system libraries.
+
