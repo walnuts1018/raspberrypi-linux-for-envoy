@@ -22,10 +22,6 @@ jobs:
       kernel_version: ${{ steps.kernel_version.outputs.version_string }}
 
     steps:
-      - name: apt-get update
-        run: |
-          sudo apt-get update
-
       - name: Install armhf crossbuild toolchain
         if: matrix.arch == 'arm'
         env:
@@ -35,7 +31,9 @@ jobs:
         timeout-minutes: 15
 
       - name: Install Dependencies
-        run: sudo apt-get install -y \
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
           ccache \
           bc \
           bison \
