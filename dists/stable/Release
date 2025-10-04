@@ -1,0 +1,24 @@
+Architectures: arm64
+Codename: stable
+Components: main
+Date: Sat, 04 Oct 2025 18:51:42 +0000
+Description: Custom kernel repository for Envoy on Raspberry Pi
+Label: Raspberry Pi Kernel for Envoy
+Origin: walnuts1018
+Suite: stable
+MD5Sum:
+ 0880fa72ac3e3c52da512a14c18ee359              228 Release
+ e03ca12ecec68d64d6e869ce95598fbd             2460 main/binary-arm64/Packages
+ 37da8af54ad6ee156132df2f196a1cdb              926 main/binary-arm64/Packages.gz
+SHA1:
+ c35366061a4d9255a024d01cf61d37225074395a              228 Release
+ 819c1c55b7202a302ac49d1b7f2c30b4ac3f6cd5             2460 main/binary-arm64/Packages
+ df9bd82e4be511d5f413f8089f3c65e00b7bf9f8              926 main/binary-arm64/Packages.gz
+SHA256:
+ e500b6f9998d33f8acc1971136346b0870919cdcb32e81cd1df7b05b7cd2b62d              228 Release
+ 1fe3e125bf6983e1829cf0de68a4d08f35179d0d30ec91364868241f698fd48b             2460 main/binary-arm64/Packages
+ 292ca5644311b5611e04fa0159b705d8d52f3660f8616ad1cdfb173b569dc1fc              926 main/binary-arm64/Packages.gz
+SHA512:
+ 41b18307b26a83141e01fcaa27b77161ac3b48f1c3e4f8b4e54ba446ac73147a76f71ac1b13b20ee3a533523b127cb5854d7462daab8d4356ac1a4c14dddc06b              228 Release
+ b5a14c364645e58337c7a6a237a33829d2a339ca9aa2d7d5d78d390bbe4dcc43a3fcac9331afb57d8192933a8506e2344b4f10eba3898d50739ef314aecbc34c             2460 main/binary-arm64/Packages
+ fc0e9e00e8cfbd3d1ce7d9bd399be54486d77a0d5b62c4a821c19e70168406c527fbbfccd3d4d02bdc65489d510988b64e16bff6312812f812073fd5231c136c              926 main/binary-arm64/Packages.gz
