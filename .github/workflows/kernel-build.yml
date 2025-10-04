@@ -34,8 +34,22 @@ jobs:
           sudo apt-get install -y gcc-arm-linux-gnueabihf
         timeout-minutes: 15
 
-      - name: Install ccache
-        run: sudo apt-get install -y ccache
+      - name: Install Dependencies
+        run: sudo apt-get install -y \
+          ccache \
+          bc \
+          bison \
+          flex \
+          libssl-dev \
+          make \
+          libc6-dev \
+          libncurses5-dev \
+          rsync \
+          ccache \
+          build-essential \
+          dpkg-dev \
+          libelf-dev \
+          debhelper
 
       - name: Set up ccache cache
         uses: actions/cache@v4
