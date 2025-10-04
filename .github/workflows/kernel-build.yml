@@ -1,4 +1,4 @@
-name: Pi kernel build tests
+name: Pi kernel build and publish APT repo
 
 on:
   push:
@@ -19,7 +19,8 @@ jobs:
             defconfig: bcm2711_defconfig
             kernel: kernel8
     outputs:
-      kernel: ${{ steps.kernel_version.outputs.tag_name }}
+      kernel_version: ${{ steps.kernel_version.outputs.version_string }}
+
     steps:
       - name: Install armhf crossbuild toolchain
         if: matrix.arch == 'arm'
@@ -53,76 +54,72 @@ jobs:
           scripts/config --file ${{github.workspace}}/build/.config --enable CONFIG_ARM64_VA_BITS_48
           scripts/config --file ${{github.workspace}}/build/.config --set-val ARM64_VA_BITS 48
           scripts/config --file ${{github.workspace}}/build/.config --set-val PGTABLE_LEVELS 4
-          scripts/config --file ${{github.workspace}}/build/.config --set-val CONFIG_LOCALVERSION -v8-${{github.run_number}}-custom-for-envoy
           scripts/config --file ${{github.workspace}}/build/.config --set-val CONFIG_WERROR y
+          scripts/config --file ${{github.workspace}}/build/.config --set-val CONFIG_LOCALVERSION -v8-${{github.run_number}}-custom-for-envoy
 
           make O=${{github.workspace}}/build -j ${{env.NUM_JOBS}} $IMAGE modules dtbs
-          make O=${{github.workspace}}/build -j ${{env.NUM_JOBS}} LOCALVERSION=-v8-${{github.run_number}}-custom-for-envoy bindeb-pkg
+          make O=${{github.workspace}}/build -j ${{env.NUM_JOBS}} bindeb-pkg
 
-      - name: Tar build
-        run: tar -cvf ${{matrix.name}}_build.tar -C ${{github.workspace}}/install .
-
-      - name: Get kernel version
+      - name: Get kernel version string
         id: kernel_version
-        run: echo "tag_name=$(make -s -C ${{github.workspace}}/build kernelrelease)" >> $GITHUB_OUTPUT
+        run: |
+          VERSION=$(make -s -C ${{github.workspace}}/build kernelrelease)
+          echo "version_string=$VERSION" >> $GITHUB_OUTPUT
 
-      - name: Upload results
+      - name: Upload .deb packages
         uses: actions/upload-artifact@v4
         with:
-          name: ${{matrix.name}}_build
-          path: ${{matrix.name}}_build.tar
-          retention-days: 90
+          name: ${{matrix.name}}_pkgs
+          path: ${{github.workspace}}/*.deb
+          retention-days: 5
 
-  upload:
+  publish:
     needs: build
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Set up GPG
-        uses: crazy-max/ghaction-import-gpg@v5
+        uses: crazy-max/ghaction-import-gpg@v6
         with:
           gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
           passphrase: ${{ secrets.GPG_PASSPHRASE }}
 
-      - name: Check out
+      - name: Check out gh-pages branch
         uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
-
-      - name: switch to gh-pages branch
-        run: git switch -c gh-pages
-
-      - name: create repo dir
-        run: |
-          mkdir -p dists/stable/main/binary-arm64
-          rm -rf dists/stable/main/binary-arm64/* || true
-
-      - uses: actions/download-artifact@634f93cb2916e3fdff6788551b99b062d0335ce0 # v5.0.0
         with:
-          name: bcm2711_build
-          path: ./bcm2711_build
+          ref: gh-pages
+          path: gh-pages
 
-      - name: extract and create Packages.gz
+      - name: Download .deb packages
+        uses: actions/download-artifact@v4
+        with:
+          name: bcm2711_pkgs
+          path: ./bcm2711_pkgs
+
+      - name: Update APT Repository
         run: |
-          tar -xvf ./bcm2711_build/bcm2711_build.tar -C dists/stable/main/binary-arm64
-          cd dists/stable/main/binary-arm64
+          cd gh-pages
+          REPO_DIR="dists/stable/main/binary-arm64"
+          mkdir -p "$REPO_DIR"
+          mv ../bcm2711_pkgs/*.deb "$REPO_DIR/"
+
+          cd "$REPO_DIR"
           dpkg-scanpackages . /dev/null > Packages
           gzip -k -f Packages
+          cd gh-pages/dists/stable
 
-      - name: create Release and InRelease files
-        run: |
-          cd dists/stable
           apt-ftparchive release . > Release
           gpg --clearsign -o InRelease Release
 
-      - name: put GPG public key
-        run: |
-          gpg --export --armor "Raspberry Pi Kernel for Envoy" > Raspberry_Pi_Kernel_for_Envoy.gpg
 
-      - name: rm
-        run: rm -rf bcm2711_build
+          gpg --export --armor "Raspberry Pi Kernel for Envoy" >  > public.key
 
-      - name: push
+      - name: Commit and Push to gh-pages
         run: |
+          cd gh-pages
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add .
-          git commit -m "Update APT repository with kernel ${{ needs.build.outputs.kernel }}"
+          git commit -m "Update APT repository with kernel ${{ needs.build.outputs.kernel_version_string }}" || echo "No changes to commit"
           git push origin gh-pages
