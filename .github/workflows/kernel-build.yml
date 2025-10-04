@@ -154,9 +154,9 @@ jobs:
 
       - name: Update Packages index
         run: |
-          cd gh-pages/dists/stable
-          dpkg-scanpackages --multiversion main/binary-arm64 /dev/null > main/binary-arm64/Packages
-          gzip -k -f main/binary-arm64/Packages
+          cd gh-pages
+          dpkg-scanpackages --multiversion dists/stable/main/binary-arm64 /dev/null > dists/stable/main/binary-arm64/Packages
+          gzip -k -f dists/stable/main/binary-arm64/Packages
 
       - name: Update Release file and sign
         run: |
