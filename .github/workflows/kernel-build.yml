@@ -45,9 +45,7 @@ jobs:
             build-essential \
             dpkg-dev \
             libelf-dev \
-            debhelper \
-            devscripts \
-            debmake
+            debhelper
 
       - name: Set up ccache cache
         uses: actions/cache@v4
