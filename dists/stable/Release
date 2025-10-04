@@ -1,24 +1,24 @@
 Architectures: arm64
 Codename: stable
 Components: main
-Date: Sat, 04 Oct 2025 18:57:05 +0000
+Date: Sat, 04 Oct 2025 19:31:59 +0000
 Description: Custom kernel repository for Envoy on Raspberry Pi
 Label: Raspberry Pi Kernel for Envoy
 Origin: walnuts1018
 Suite: stable
 MD5Sum:
- 1b469b6439a728d94659e671f9988cee              228 Release
- 7b51ebc75cd2076e149b29a6ba8767f3             4920 main/binary-arm64/Packages
- cf0e2d3446a3ab36c09645e57bbdbe98             1293 main/binary-arm64/Packages.gz
+ 6a60f0d2294f8dc38f4f788b324773f1              228 Release
+ a272275d4ae9bd46514949a7a011c5f5             7380 main/binary-arm64/Packages
+ b187794df37d962e84f3bb023d86565d             1657 main/binary-arm64/Packages.gz
 SHA1:
- 0dc1936d23d912da64f4c2f69b1940e2c2688eb0              228 Release
- ecd278ca0a66941eddbb99b5cd7ee76b6219da49             4920 main/binary-arm64/Packages
- 0f1dbc3ea457e6d9b10e7c291a0122834b0dc359             1293 main/binary-arm64/Packages.gz
+ ca891960c2579d0ebe253d174971854183b98484              228 Release
+ 5cfa62c61046598064d87fe10b3a14e387bf4a2d             7380 main/binary-arm64/Packages
+ e1510c8650abfbc8d9a484818fa27db7c669eb25             1657 main/binary-arm64/Packages.gz
 SHA256:
- 37dcfcace5f492531ec3cb7a229c617035e6d08e696d081e4da1e04249bb1101              228 Release
- 0ffda374b3053d5bd16a5babca23d0219ccf6c5d6b2739844b51c58cb61d7112             4920 main/binary-arm64/Packages
- 51465b37f52c471f8aec1a844894c97ff6719b2f30fbe69d4281adb75801f058             1293 main/binary-arm64/Packages.gz
+ 3ae2f68ecb3764eae92f1f3ce7b781326d7728cfe0c3c2d038c5878345331def              228 Release
+ 335426deb653f95a2bec5a55ef8e0ee757b35753298c04a89e1f8028def83e3f             7380 main/binary-arm64/Packages
+ 656e5f62180a7abed528213cc7754838a0a82c7da9f9b3883542bcbeef8742ea             1657 main/binary-arm64/Packages.gz
 SHA512:
- 7fd2633b39d1c3e7a36817be91b22580e25a5b33bab61e0bc0829e3c596df5cf06dbe4976afd7ff10b40207b59ee470583add8d19fe94bb1d98a7774a2cbe56b              228 Release
- ea4a77a3c6974a0fe14fdc144b24ece648ef220da91fdb6269c7748b315e91d0628c5a5e6fa07d99b7c5958882f3d978c45b62a7403c550f7080aac0ab1faa7e             4920 main/binary-arm64/Packages
- 42616db9b2f5ecb41fd3dfe13bfd5136e01a391a952573d4096ad0a32712bf9b27ef32e5806ff7493aee20e3d2c53cb8351609e3aa76d57120950fdbbdda71bc             1293 main/binary-arm64/Packages.gz
+ 7bc324abb11d8427e4a824c8b530d4a0ec41dea70be6bb616fbfc4ca0421f4050f9c481c6d31c4c7c2e4f0ca30735c5f6eadbadb6c4358e92ae2593a4d109dfa              228 Release
+ cd5a3f5f0368635522f783186ffb9acdc6732f8fe49baee48ef5d3919bf5d39728bee8edd92b68208ae68f622debdc62c6f14b53e6c7f9c91e1bee8a7911670e             7380 main/binary-arm64/Packages
+ 1065e0e7d1d7de3946ea0df0118c9ccb4ea1b236a63cb28c9887af198d45309a8fb9ad2a61c6cd49b9c3ecf6b035abab38705889cb5b30c797e3773de2a4aeaa             1657 main/binary-arm64/Packages.gz

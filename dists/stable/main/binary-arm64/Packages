@@ -1,5 +1,24 @@
 Package: linux-headers-6.12.50+custom-for-envoy-rpi-v8
 Source: linux-upstream
+Version: 6.12.50-g3692c81838b3-2
+Architecture: arm64
+Maintainer: runner <runner@runnervmonn4v.j5mr0bnfrynupdysqxapqgvyhd.cx.internal.cloudapp.net>
+Installed-Size: 50835
+Filename: dists/stable/main/binary-arm64/linux-headers-6.12.50+custom-for-envoy-rpi-v8_6.12.50-g3692c81838b3-2_arm64.deb
+Size: 8830694
+MD5sum: bf9b362bd33f4875b430eb4c6d765c97
+SHA1: 37c357bd80a6d1b82a86e00d4f5d48efd9db9df4
+SHA256: e8ead2c34b2506f1d40934bd715bec63c6e449de534cf06d1832058ea8c3274d
+Section: kernel
+Priority: optional
+Homepage: https://www.kernel.org/
+Description: Linux kernel headers for 6.12.50+custom-for-envoy-rpi-v8 on arm64
+ This package provides kernel header files for 6.12.50+custom-for-envoy-rpi-v8 on arm64
+ .
+ This is useful for people who need to build external modules
+
+Package: linux-headers-6.12.50+custom-for-envoy-rpi-v8
+Source: linux-upstream
 Version: 6.12.50-ga4f66cead2ff-2
 Architecture: arm64
 Maintainer: runner <runner@runnervmonn4v.nb3rpabhv0jerk1z0m4ifiorjc.cx.internal.cloudapp.net>
@@ -38,6 +57,24 @@ Description: Linux kernel headers for 6.12.50+custom-for-envoy-rpi-v8 on arm64
 
 Package: linux-image-6.12.50+custom-for-envoy-rpi-v8
 Source: linux-upstream
+Version: 6.12.50-g3692c81838b3-2
+Architecture: arm64
+Maintainer: runner <runner@runnervmonn4v.j5mr0bnfrynupdysqxapqgvyhd.cx.internal.cloudapp.net>
+Installed-Size: 41874
+Filename: dists/stable/main/binary-arm64/linux-image-6.12.50+custom-for-envoy-rpi-v8_6.12.50-g3692c81838b3-2_arm64.deb
+Size: 32751694
+MD5sum: b95ec4b2d8259005bd5d2cf84d55fc1c
+SHA1: f975c57c0fc98155ff2a386fc28c1c139bdec4dd
+SHA256: c74b0b6eccb9325548d3c172775943fe2c401b4cef3c43338c9625313836bb76
+Section: kernel
+Priority: optional
+Homepage: https://www.kernel.org/
+Description: Linux kernel, version 6.12.50+custom-for-envoy-rpi-v8
+ This package contains the Linux kernel, modules and corresponding other
+ files, version: 6.12.50+custom-for-envoy-rpi-v8.
+
+Package: linux-image-6.12.50+custom-for-envoy-rpi-v8
+Source: linux-upstream
 Version: 6.12.50-ga4f66cead2ff-2
 Architecture: arm64
 Maintainer: runner <runner@runnervmonn4v.nb3rpabhv0jerk1z0m4ifiorjc.cx.internal.cloudapp.net>
@@ -71,6 +108,26 @@ Homepage: https://www.kernel.org/
 Description: Linux kernel, version 6.12.50+custom-for-envoy-rpi-v8
  This package contains the Linux kernel, modules and corresponding other
  files, version: 6.12.50+custom-for-envoy-rpi-v8.
+
+Package: linux-libc-dev
+Source: linux-upstream
+Version: 6.12.50-g3692c81838b3-2
+Architecture: arm64
+Maintainer: runner <runner@runnervmonn4v.j5mr0bnfrynupdysqxapqgvyhd.cx.internal.cloudapp.net>
+Installed-Size: 7082
+Provides: linux-kernel-headers
+Filename: dists/stable/main/binary-arm64/linux-libc-dev_6.12.50-g3692c81838b3-2_arm64.deb
+Size: 1420030
+MD5sum: 750c0181ee603c9605efa143119a2f21
+SHA1: 0901c1b1b6525fa7450c96cbdad25bc5dc5198ed
+SHA256: 398a525530dd3f730dae57194b1688e92162126d76b1580b9b19f6c74ff2d6c2
+Section: devel
+Priority: optional
+Multi-Arch: same
+Homepage: https://www.kernel.org/
+Description: Linux support headers for userspace development
+ This package provides userspaces headers from the Linux kernel.  These headers
+ are used by the installed headers for GNU glibc and other system libraries.
 
 Package: linux-libc-dev
 Source: linux-upstream
