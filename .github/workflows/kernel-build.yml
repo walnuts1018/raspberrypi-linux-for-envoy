@@ -167,7 +167,7 @@ jobs:
 
           cd gh-pages/dists/stable
           apt-ftparchive -c ~/apt-ftparchive.conf release . > Release
-          gpg --passphrase "$GPG_PASSPHRASE" --clearsign -o InRelease Release
+          gpg --batch --passphrase ${{ secrets.GPG_PASSPHRASE }} --clearsign -o InRelease Release
 
       - name: Export GPG public key
         run: |
