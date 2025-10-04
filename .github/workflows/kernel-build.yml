@@ -151,9 +151,24 @@ jobs:
 
       - name: Update Release file and sign
         run: |
+          cat << EOF > apt-ftparchive.conf
+          APT::FTPArchive::Release {
+            Origin "walnuts1018";
+            Label "Raspberry Pi Kernel for Envoy";
+            Suite "stable";
+            Codename "stable";
+            Architectures "arm64";
+            Components "main";
+            Description "Custom kernel repository for Envoy on Raspberry Pi";
+          };
+          EOF
+
           cd gh-pages/dists/stable
-          apt-ftparchive release . > Release
+          apt-ftparchive -c apt-ftparchive.conf release . > Release
           gpg --passphrase "$GPG_PASSPHRASE" --clearsign -o InRelease Release
+
+      - name: Export GPG public key
+        run: |
           cd gh-pages
           gpg --export --armor "0172E98C9B6B9E859597CE1D71DCBD6F02535F2B" > public.key
 
