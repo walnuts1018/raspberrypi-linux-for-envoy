@@ -111,7 +111,6 @@ jobs:
       - name: Check ccache stats
         run: |
           ccache -s
-          ls -al ~/.ccache
           ls -al ~/.cache/ccache
 
       - name: Upload .deb packages
@@ -148,7 +147,6 @@ jobs:
       - name: Move .deb packages to repo directory
         run: |
           cd gh-pages
-          rm -rf ./*
           mkdir -p dists/stable/main/binary-arm64
           mv ../bcm2711_pkgs/*.deb dists/stable/main/binary-arm64/
 
