@@ -61,7 +61,9 @@ jobs:
             ccache-
 
       - name: Reset ccache statistics
-        run: ccache -z
+        run: |
+          mkdir -p ~/.ccache
+          ccache -z
 
       - name: Checkout source
         uses: actions/checkout@v4
