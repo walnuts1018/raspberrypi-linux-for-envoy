@@ -7,6 +7,8 @@ on:
 
 env:
   NUM_JOBS: 6
+  CCACHE_DIR: ~/.ccache
+  CCACHE_MAXSIZE: 10G
 
 jobs:
   build:
