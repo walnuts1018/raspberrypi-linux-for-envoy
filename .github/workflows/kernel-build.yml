@@ -148,6 +148,12 @@ jobs:
           name: bcm2711_pkgs
           path: ./bcm2711_pkgs
 
+      - name: apt install dpkg-scanpackages
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+          apt-ftparchive
+
       - name: Move .deb packages to repo directory
         run: |
           cd gh-pages
