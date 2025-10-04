@@ -155,7 +155,7 @@ jobs:
           apt-ftparchive release . > Release
           gpg --clearsign -o InRelease Release
           cd gh-pages
-          gpg --export --armor "Raspberry Pi Kernel for Envoy" > public.key
+          gpg --export --armor "0172E98C9B6B9E859597CE1D71DCBD6F02535F2B" > public.key
 
       - name: Commit and Push to gh-pages
         run: |
