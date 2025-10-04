@@ -108,6 +108,12 @@ jobs:
           VERSION=$(make -s -C ${{github.workspace}}/build kernelrelease)
           echo "version_string=$VERSION" >> $GITHUB_OUTPUT
 
+      - name: Check ccache stats
+        run: |
+          ccache -s
+          ls -al ~/.ccache
+          ls -al ~/.cache/ccache
+
       - name: Upload .deb packages
         uses: actions/upload-artifact@v4
         with:
@@ -147,9 +153,9 @@ jobs:
 
       - name: Update Packages index
         run: |
-          cd gh-pages/dists/stable/main/binary-arm64
-          dpkg-scanpackages . /dev/null > Packages
-          gzip -k -f Packages
+          cd gh-pages/dists/stable
+          dpkg-scanpackages --multiversion main/binary-arm64 /dev/null > main/binary-arm64/Packages
+          gzip -k -f main/binary-arm64/Packages
 
       - name: Update Release file and sign
         run: |
