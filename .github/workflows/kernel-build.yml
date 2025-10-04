@@ -151,7 +151,7 @@ jobs:
 
       - name: Update Release file and sign
         run: |
-          cat << EOF > apt-ftparchive.conf
+          cat << EOF > ~/apt-ftparchive.conf
           APT::FTPArchive::Release {
             Origin "walnuts1018";
             Label "Raspberry Pi Kernel for Envoy";
@@ -164,7 +164,7 @@ jobs:
           EOF
 
           cd gh-pages/dists/stable
-          apt-ftparchive -c apt-ftparchive.conf release . > Release
+          apt-ftparchive -c ~/apt-ftparchive.conf release . > Release
           gpg --passphrase "$GPG_PASSPHRASE" --clearsign -o InRelease Release
 
       - name: Export GPG public key
