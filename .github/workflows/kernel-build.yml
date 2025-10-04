@@ -153,7 +153,7 @@ jobs:
         run: |
           cd gh-pages/dists/stable
           apt-ftparchive release . > Release
-          gpg --clearsign -o InRelease Release
+          gpg --passphrase "$GPG_PASSPHRASE" --clearsign -o InRelease Release
           cd gh-pages
           gpg --export --armor "0172E98C9B6B9E859597CE1D71DCBD6F02535F2B" > public.key
 
