@@ -22,12 +22,15 @@ jobs:
       kernel_version: ${{ steps.kernel_version.outputs.version_string }}
 
     steps:
+      - name: apt-get update
+        run: |
+          sudo apt-get update
+
       - name: Install armhf crossbuild toolchain
         if: matrix.arch == 'arm'
         env:
           DEBIAN_FRONTEND: noninteractive
         run: |
-          sudo apt-get update
           sudo apt-get install -y gcc-arm-linux-gnueabihf
         timeout-minutes: 15
 
@@ -35,6 +38,23 @@ jobs:
         with:
           fetch-depth: 1
           clean: true
+
+      - name: Install ccache
+        run: sudo apt-get install -y ccache
+
+      - name: Set up ccache cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.ccache
+          key: ${{ runner.os }}-${{ matrix.name }}-ccache-${{ hashFiles('**/.config') }}
+          restore-keys: |
+            ${{ runner.os }}-${{ matrix.name }}-ccache-
+            ${{ runner.os }}-ccache-
+            ${{ runner.os }}-
+            ccache-
+
+      - name: Reset ccache statistics
+        run: ccache -z
 
       - name: Build kernel ${{matrix.name}}
         run: |
