@@ -84,7 +84,9 @@ jobs:
           scripts/config --file ${{github.workspace}}/build/.config --set-val CONFIG_LOCALVERSION ${{ steps.localversion.outputs.localversion }}
 
       - name: Build kernel image, modules, dtbs
-        run: make O=${{github.workspace}}/build -j ${{env.NUM_JOBS}} ${{ env.IMAGE }} modules dtbs
+        run: |
+          make O=${{github.workspace}}/build -j ${{env.NUM_JOBS}} ${{ env.IMAGE }} modules dtbs
+          cp arch/arm64/boot/dts/overlays/README ${{github.workspace}}/build/arch/arm64/boot/dts/overlays/README
 
       - name: Build kernel deb packages
         run: make O=${{github.workspace}}/build -j ${{env.NUM_JOBS}} LOCALVERSION="${{ steps.localversion.outputs.localversion }}" bindeb-pkg
