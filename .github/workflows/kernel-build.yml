@@ -52,9 +52,6 @@ jobs:
           fetch-depth: 1
           clean: true
 
-      - name: Prepare build directory
-        run: mkdir ${{github.workspace}}/build
-
       - name: Set environment variables
         id: env_vars
         run: |
@@ -69,7 +66,7 @@ jobs:
           fi
 
       - name: Kernel defconfig
-        run: make O=${{github.workspace}}/build ${{matrix.defconfig}}
+        run: make ${{matrix.defconfig}}
 
       - name: LOCALVERSION
         id: localversion
@@ -77,31 +74,23 @@ jobs:
 
       - name: Kernel config customization
         run: |
-          scripts/config --file ${{github.workspace}}/build/.config --disable CONFIG_ARM64_VA_BITS_39
-          scripts/config --file ${{github.workspace}}/build/.config --enable CONFIG_ARM64_VA_BITS_48
-          scripts/config --file ${{github.workspace}}/build/.config --set-val ARM64_VA_BITS 48
-          scripts/config --file ${{github.workspace}}/build/.config --set-val PGTABLE_LEVELS 4
-          scripts/config --file ${{github.workspace}}/build/.config --set-val CONFIG_LOCALVERSION ${{ steps.localversion.outputs.localversion }}
+          scripts/config --file .config --disable CONFIG_ARM64_VA_BITS_39
+          scripts/config --file .config --enable CONFIG_ARM64_VA_BITS_48
+          scripts/config --file .config --set-val ARM64_VA_BITS 48
+          scripts/config --file .config --set-val PGTABLE_LEVELS 4
+          scripts/config --file .config --set-val CONFIG_LOCALVERSION ${{ steps.localversion.outputs.localversion }}
 
       - name: Build kernel image, modules, dtbs
         run: |
-          make O=${{github.workspace}}/build -j ${{env.NUM_JOBS}} ${{ env.IMAGE }} modules dtbs
-
-      - name: copy README
-        run: |
-          if [[ "${{matrix.arch}}" == "arm64" ]]; then
-            cp arch/arm64/boot/dts/overlays/README ${{github.workspace}}/build/arch/arm64/boot/dts/overlays/README
-          else
-            cp arch/arm/boot/dts/overlays/README ${{github.workspace}}/build/arch/arm/boot/dts/overlays/README
-          fi
+          make -j ${{env.NUM_JOBS}} ${{ env.IMAGE }} modules dtbs
 
       - name: Build kernel deb packages
-        run: make O=${{github.workspace}}/build -j ${{env.NUM_JOBS}} LOCALVERSION="${{ steps.localversion.outputs.localversion }}" bindeb-pkg
+        run: make -j ${{env.NUM_JOBS}} LOCALVERSION="${{ steps.localversion.outputs.localversion }}" bindeb-pkg
 
       - name: Get kernel version string
         id: kernel_version
         run: |
-          VERSION=$(make -s -C ${{github.workspace}}/build kernelrelease)
+          VERSION=$(make -s kernelrelease)
           echo "version_string=$VERSION" >> $GITHUB_OUTPUT
 
       - name: Upload .deb packages
