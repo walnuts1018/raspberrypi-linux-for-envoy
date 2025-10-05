@@ -93,11 +93,15 @@ jobs:
           VERSION=$(make -s kernelrelease)
           echo "version_string=$VERSION" >> $GITHUB_OUTPUT
 
+      - name: mv pkgs
+        run: |
+          mv ${{github.workspace}}/../*.deb ./
+
       - name: Upload .deb packages
         uses: actions/upload-artifact@v4
         with:
           name: ${{matrix.name}}_pkgs
-          path: ${{github.workspace}}/../*.deb
+          path: ${{github.workspace}}/*.deb
           retention-days: 5
 
   publish:
