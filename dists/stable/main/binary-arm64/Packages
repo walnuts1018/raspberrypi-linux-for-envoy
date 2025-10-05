@@ -57,6 +57,25 @@ Description: Linux kernel headers for 6.12.50+custom-for-envoy-rpi-v8 on arm64
 
 Package: linux-headers-6.12.50+custom-for-envoy-rpi-v8
 Source: linux-upstream
+Version: 6.12.50-g6bf4a3611c7b-2
+Architecture: arm64
+Maintainer: runner <runner@runnervmonn4v.j5mr0bnfrynupdysqxapqgvyhd.cx.internal.cloudapp.net>
+Installed-Size: 50834
+Filename: dists/stable/main/binary-arm64/linux-headers-6.12.50+custom-for-envoy-rpi-v8_6.12.50-g6bf4a3611c7b-2_arm64.deb
+Size: 8830916
+MD5sum: 20682ddf90d60f319a423dd0994541ac
+SHA1: 23783b389176635dcf2f4937ef51c64f30aa7b14
+SHA256: 534455963539233811af70ffe9ca2e7330f7e0ae82861496832bf9e3dd81118a
+Section: kernel
+Priority: optional
+Homepage: https://www.kernel.org/
+Description: Linux kernel headers for 6.12.50+custom-for-envoy-rpi-v8 on arm64
+ This package provides kernel header files for 6.12.50+custom-for-envoy-rpi-v8 on arm64
+ .
+ This is useful for people who need to build external modules
+
+Package: linux-headers-6.12.50+custom-for-envoy-rpi-v8
+Source: linux-upstream
 Version: 6.12.50-ga4f66cead2ff-2
 Architecture: arm64
 Maintainer: runner <runner@runnervmonn4v.nb3rpabhv0jerk1z0m4ifiorjc.cx.internal.cloudapp.net>
@@ -178,6 +197,24 @@ Size: 32752488
 MD5sum: eb3b2d5b336c42d6aa7581a5d428da17
 SHA1: 9099340c7f44daa0d44a5c8fa11abc9479f82929
 SHA256: 7db4c092516deab686f5e008d9eb0ee7af25300f838582c741cd17335f397612
+Section: kernel
+Priority: optional
+Homepage: https://www.kernel.org/
+Description: Linux kernel, version 6.12.50+custom-for-envoy-rpi-v8
+ This package contains the Linux kernel, modules and corresponding other
+ files, version: 6.12.50+custom-for-envoy-rpi-v8.
+
+Package: linux-image-6.12.50+custom-for-envoy-rpi-v8
+Source: linux-upstream
+Version: 6.12.50-g6bf4a3611c7b-2
+Architecture: arm64
+Maintainer: runner <runner@runnervmonn4v.j5mr0bnfrynupdysqxapqgvyhd.cx.internal.cloudapp.net>
+Installed-Size: 41874
+Filename: dists/stable/main/binary-arm64/linux-image-6.12.50+custom-for-envoy-rpi-v8_6.12.50-g6bf4a3611c7b-2_arm64.deb
+Size: 32751716
+MD5sum: f679df24f9462c7f5f1ea533775f1d5d
+SHA1: 0f9fb1ea05d2ef9518bed8f618d1014d8681b501
+SHA256: f0c56c224c7754f21cba13969ea5160288179c746857f3cda8acf0d024c2fadf
 Section: kernel
 Priority: optional
 Homepage: https://www.kernel.org/
@@ -309,6 +346,26 @@ Size: 1419288
 MD5sum: 967b330f41413c4ea0638c639736db5c
 SHA1: 4521985528187a740cb5889b7b04e4e4bc606f83
 SHA256: 095e223d3b9fc83b66d1be749eba4fb97ada3e55f2aa21fdd1e22061bff1b7d0
+Section: devel
+Priority: optional
+Multi-Arch: same
+Homepage: https://www.kernel.org/
+Description: Linux support headers for userspace development
+ This package provides userspaces headers from the Linux kernel.  These headers
+ are used by the installed headers for GNU glibc and other system libraries.
+
+Package: linux-libc-dev
+Source: linux-upstream
+Version: 6.12.50-g6bf4a3611c7b-2
+Architecture: arm64
+Maintainer: runner <runner@runnervmonn4v.j5mr0bnfrynupdysqxapqgvyhd.cx.internal.cloudapp.net>
+Installed-Size: 7082
+Provides: linux-kernel-headers
+Filename: dists/stable/main/binary-arm64/linux-libc-dev_6.12.50-g6bf4a3611c7b-2_arm64.deb
+Size: 1419556
+MD5sum: 17d85d57a9b97cd466b6ec0b83504b26
+SHA1: db0466ca932954f946f1e8cf8e1b0fd6112ce960
+SHA256: 736b45ff59d0129ae836616e8b96307602107e6ce1be54ac0909287c64872840
 Section: devel
 Priority: optional
 Multi-Arch: same
