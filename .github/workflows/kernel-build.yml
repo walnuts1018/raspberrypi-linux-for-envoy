@@ -87,7 +87,7 @@ jobs:
         run: make O=${{github.workspace}}/build -j ${{env.NUM_JOBS}} ${{ env.IMAGE }} modules dtbs
 
       - name: Build kernel deb packages
-        run: make O=${{github.workspace}}/build -j ${{env.NUM_JOBS}} LOCALVERSION="${{ steps.localversion.outputs.localversion }}" deb-pkg
+        run: make O=${{github.workspace}}/build -j ${{env.NUM_JOBS}} LOCALVERSION="${{ steps.localversion.outputs.localversion }}" bindeb-pkg
 
       - name: Get kernel version string
         id: kernel_version
